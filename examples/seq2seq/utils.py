@@ -39,7 +39,7 @@ def encode_file(
             print(f"failed to load from {cache_path}, retokenizing {data_path}")
     data_path = Path(data_path)
 
-    lns = lmap(str.strip, data_path.open().readlines())
+    lns = lmap(str.strip, data_path.open(encoding='utf-8').readlines())
     lns = [prefix + text for text in lns]
     assert lns, f"found empty file at {data_path}"
     examples = []
